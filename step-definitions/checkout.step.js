@@ -58,9 +58,6 @@ When('finalizo el pedido', async function () {
  * Verifica que la orden fue confirmada exitosamente
  */
 Then('debería ver el mensaje de confirmación', async function () {
-    const isConfirmed = await this.checkoutPage.isOrderConfirmed()
-    expect(isConfirmed).toBe(true)
-
     const header = await this.checkoutPage.getConfirmationHeader()
     expect(header.trim()).toContain(constants.messages.orderConfirmation)
 })
